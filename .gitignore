@@ -5,7 +5,7 @@ keras_autoencoder_builder_two_input/__pycache__/*
 
 data_opt_mod/__pycache__/*
 data_opt_mod/get_pokemon_img
-g
+
 model_mod/__pycache__/*
 model_mod/weight/*
 !model_mod/weight/.gitkeep
