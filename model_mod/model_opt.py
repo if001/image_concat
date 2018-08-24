@@ -8,7 +8,7 @@ sys.path.append("../")
 from keras_autoencoder_builder.build import AutoEncoderBuidler
 
 
-BATCH_SIZE = 128
+BATCH_SIZE = 64
 EPOCHS = 5
 VERBOSE = 1
 BASE_PATH = ""

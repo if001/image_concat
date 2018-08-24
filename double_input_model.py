@@ -5,13 +5,14 @@ from model_mod.model_opt_two_input_model import ModelOpt
 from data_opt_mod.data_opt import DataOpt
 WEIGHT_DIR = "./model_mod/weight"
 DATA_DIR = "./data_opt_mod/get_pokemon_img/img"
+DATA_SIZE = 289
 
 
 def train():
     train_data1, teach_data1 = DataOpt.make_train_data_random_choice(
-        DATA_DIR, 6000)
+        DATA_DIR, DATA_SIZE)
     train_data2, teach_data2 = DataOpt.make_train_data_random_choice(
-        DATA_DIR, 6000)
+        DATA_DIR, DATA_SIZE)
 
     encoder_weight_file = os.path.join(WEIGHT_DIR, "encoder_double.hdf5")
     decoder_weight_file = os.path.join(WEIGHT_DIR, "decoder_double.hdf5")

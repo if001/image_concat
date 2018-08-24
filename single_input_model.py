@@ -5,6 +5,7 @@ from model_mod.model_opt import ModelOpt
 from data_opt_mod.data_opt import DataOpt
 WEIGHT_DIR = "./model_mod/weight"
 DATA_DIR = "./data_opt_mod/get_pokemon_img/img"
+DATA_SIZE = 289
 
 
 def train():
@@ -15,7 +16,7 @@ def train():
                          model_init=True)
     for _ in range(20):
         train_data, teach_data = DataOpt.make_train_data_random_choice(
-            DATA_DIR, 568)
+            DATA_DIR, DATA_SIZE)
         model_opt.train(train_data, teach_data)
         model_opt.save_model()
 
