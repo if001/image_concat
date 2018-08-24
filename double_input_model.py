@@ -44,8 +44,8 @@ def predict():
 
 
 def main():
-    # train()
-    predict()
+    train()
+    # predict()
 
 
 if __name__ == "__main__":
