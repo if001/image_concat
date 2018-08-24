@@ -32,7 +32,7 @@ class LayerSet():
 
     @classmethod
     def decoder_input(cls):
-        return Input(shape=(32, 32, 64))
+        return Input(shape=(16, 16, 64))
 
     @classmethod
     def decoder_layer(cls, input_layer):

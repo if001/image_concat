@@ -1,1 +1,1 @@
-IMG_SIZE = 512
+IMG_SIZE = 256
