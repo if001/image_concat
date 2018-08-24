@@ -1,0 +1,14 @@
+__pycache__/*
+
+keras_autoencoder_builder/__pycache__/*
+keras_autoencoder_builder_two_input/__pycache__/*
+
+data_opt_mod/__pycache__/*
+data_opt_mod/get_pokemon_img
+g
+model_mod/__pycache__/*
+model_mod/weight/*
+!model_mod/weight/.gitkeep
+
+create_img/*
+!create_img/.gitkeep

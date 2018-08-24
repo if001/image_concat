@@ -1,0 +1,3 @@
+[submodule "keras_autoencoder_builder_two_input"]
+	path = keras_autoencoder_builder_two_input
+	url = https://github.com/if001/keras_autoencoder_builder.git
