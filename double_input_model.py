@@ -5,7 +5,7 @@ from model_mod.model_opt_two_input_model import ModelOpt
 from data_opt_mod.data_opt import DataOpt
 WEIGHT_DIR = "./model_mod/weight"
 DATA_DIR = "./data_opt_mod/get_pokemon_img/img"
-DATA_SIZE = 289
+DATA_SIZE = 150
 
 
 def train():
