@@ -8,8 +8,8 @@ sys.path.append("../")
 from keras_autoencoder_builder.build import AutoEncoderBuidler
 
 
-BATCH_SIZE = 32
-EPOCHS = 5
+BATCH_SIZE = 1
+EPOCHS = 1
 VERBOSE = 1
 BASE_PATH = ""
 
@@ -46,15 +46,16 @@ class ModelOpt():
 
     @classmethod
     def set_callbacks(cls, prefix):
-        fpath = os.path.join(
-            BASE_PATH, prefix + '_weights.{epoch:02d}-{loss:.2f}-{acc:.2f}-{val_loss:.2f}-{val_acc:.2f}.hdf5')
-
         callbacks = []
+        # fpath = os.path.join(
+        #     BASE_PATH, prefix + '_weights.{epoch:02d}-{loss:.2f}-{acc:.2f}-{val_loss:.2f}-{val_acc:.2f}.hdf5')
         # callbacks.append(keras.callbacks.ModelCheckpoint(
         #     filepath=fpath, monitor='val_loss', verbose=1, save_best_only=True, mode='auto'))
 
         callbacks.append(keras.callbacks.EarlyStopping(
             monitor='val_loss', patience=5, verbose=1, mode='auto'))
+
+        callbacks.append(keras.callbacks.TensorBoard(log_dir="model_mod/tflog", histogram_freq=1))
 
         return callbacks
 

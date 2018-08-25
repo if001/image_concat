@@ -9,6 +9,9 @@ data_opt_mod/get_pokemon_img
 model_mod/__pycache__/*
 model_mod/weight/*
 !model_mod/weight/.gitkeep
+model_mod/tflog/*
+!model_mod/tflog/.gitkeep
 
 create_img/*
 !create_img/.gitkeep
+
