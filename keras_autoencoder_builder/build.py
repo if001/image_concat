@@ -49,7 +49,7 @@ class AutoEncoderBuidler():
         optimizerやlossが、オブジェクト or Stringで飛んでくるため
         ここで開けて関数にする
         """
-        return f if type(f) == str else f()
+        return f if type(f) == str else f
 
     def __model_builder(self, input_layer, layers, weight_file=''):
         if weight_file == '':
@@ -58,7 +58,9 @@ class AutoEncoderBuidler():
                 output_layer = layer(input_layer)
                 input_layer = output_layer
             model = Model(__first_inp, output_layer)
-            model.compile(optimizer=self.__opt, loss=self.__loss)
+            model.compile(optimizer=self.__opt,
+                          loss=self.__loss,
+                          metrics=['accuracy'])
             model.summary()
         else:
             model = AutoEncoderBuidler.load_model(weight_file)
@@ -92,11 +94,6 @@ class AutoEncoderBuidler():
 
 def main():
     builded = AutoEncoderBuidler()
-
-    builded.encoder.fit()
-    builded.decoder.fit()
-    builded.auto_encoder.fit()
-    builded.auto_encoder.predict()
 
 
 if __name__ == "__main__":

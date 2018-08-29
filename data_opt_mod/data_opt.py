@@ -95,5 +95,15 @@ class DataOpt():
         return ext
 
     @classmethod
-    def get_data_set(cls, save_dir_path):
-        pass
+    def load_data_set(cls, load_train_file_name):
+        train_data = np.load(load_train_file_name)['train_data']
+        print("train shape", train_data.shape)
+        teach_data = np.load(load_train_file_name)['teach_data']
+        print("teach shape", teach_data.shape)
+        return train_data, teach_data
+
+    @classmethod
+    def save_data_set(cls, train_data, teach_data, save_train_file_name):
+        np.savez_compressed(save_train_file_name,
+                            train_data=train_data, teach_data=teach_data)
+        print("save ", save_train_file_name)

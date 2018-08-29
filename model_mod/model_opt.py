@@ -1,4 +1,7 @@
 import keras
+from keras.utils import plot_model
+from keras.optimizers import Adam
+
 import numpy as np
 import os
 
@@ -9,7 +12,7 @@ from keras_autoencoder_builder.build import AutoEncoderBuidler
 
 
 BATCH_SIZE = 64
-EPOCHS = 20
+EPOCHS = 2z0
 VERBOSE = 1
 BASE_PATH = ""
 
@@ -22,8 +25,12 @@ class ModelOpt():
         self.encoder_weight_file = encoder_weight_file
         self.decoder_weight_file = decoder_weight_file
 
+        opt = Adam(lr=0.0006, beta_1=0.9, beta_2=0.999,
+                   epsilon=None, decay=0.0, amsgrad=False)
+
         if model_init:
-            self.__builder = AutoEncoderBuidler()
+            self.__builder = AutoEncoderBuidler(opt=opt)
+            plot_model(self.__builder.auto_encoder, to_file='auto_encoder.png')
         else:
             self.__builder = AutoEncoderBuidler(
                 encoder_weight_file=encoder_weight_file,
@@ -53,9 +60,10 @@ class ModelOpt():
         #     filepath=fpath, monitor='val_loss', verbose=1, save_best_only=True, mode='auto'))
 
         callbacks.append(keras.callbacks.EarlyStopping(
-            monitor='val_loss', patience=5, verbose=1, mode='auto'))
+            monitor='val_loss', patience=3, verbose=1, mode='auto'))
 
-        callbacks.append(keras.callbacks.TensorBoard(log_dir="model_mod/tflog", histogram_freq=1))
+        callbacks.append(keras.callbacks.TensorBoard(
+            log_dir="model_mod/tflog", histogram_freq=1))
 
         return callbacks
 
